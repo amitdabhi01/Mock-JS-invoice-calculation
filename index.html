@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice With Calculation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="card invoice-card p-4">
+            <h2 class="text-center mb-4">Invoice Generator</h2>
+
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <input type="text" id="itemName" class="form-control" placeholder="Item Name">
+                </div>
+                <div class="col-md-2">
+                    <input type="number" id="quantity" class="form-control" placeholder="Quantity">
+                </div>
+                <div class="col-md-2">
+                    <input type="number" id="price" class="form-control" placeholder="Price">
+                </div>
+                <div class="col-md-2">
+                    <input type="number" id="discount" class="form-control" placeholder="Discount %">
+                </div>
+                <div class="col-md-3 d-grid">
+                    <button class="btn btn-primary" onclick="addItem()">Add Item</button>
+                </div>
+            </div>
+
+            <div class="table-responsive mt-4">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceBody"></tbody>
+                </table>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-md-12">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <strong>₹<span id="subtotal">0</span></strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total Discount</span>
+                            <strong>₹<span id="totalDiscount">0</span></strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Tax (10%)</span>
+                            <strong>₹<span id="tax">0</span></strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between list-group-item-success">
+                            <span>Grand Total</span>
+                            <strong>₹<span id="grandTotal">0</span></strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-end mt-3 d-flex gap-2">
+                <button class="btn btn-danger w-50" onclick="resetInvoice()">Reset</button>
+                <button class="btn btn-success w-50" onclick="window.print()">Print</button>           
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+<script src="script.js"></script>
+
+</html>
